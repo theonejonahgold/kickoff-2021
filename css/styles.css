@@ -137,12 +137,13 @@ a {
 }
 
 a:before {
-  content: '';
+  content: 'GitHub Profiel: ';
+  color: transparent;
   background: url('../assets/github.png') no-repeat center/contain;
   display: inline-block;
   height: 1rem;
   width: 1.5rem;
-  object-fit: contain;
+  overflow: hidden;
   margin-right: 0.25em;
 }
 
