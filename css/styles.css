@@ -62,7 +62,6 @@ body:after {
   left: 50%;
   top: 50%;
   position: fixed;
-
   z-index: -1;
 }
 
