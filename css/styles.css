@@ -1,14 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway:wght@700&display=swap');
+
 :root {
-  --primary:#FFF;
-  --secondary:#000;
+  --white: #fff;
+  --light-orange: #f49f0a;
+  --orange: #f08700;
+  --dark-blue: #11181c;
+  --yellow: rgb(239, 202, 8);
+  --background: var(--white);
+
+  --primary: var(--dark-blue);
+
+  --font-heading: 'Raleway', sans-serif;
+  --font-running: 'Noto Sans', sans-serif;
+
+  --border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 * {
-  box-sizing:border-box;
+  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
 html {
-  background: var(--secondary);
+  background: var(--background);
   color: var(--primary);
+  font-family: var(--font-running);
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+article {
+  position: relative;
+  z-index: 99;
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  grid-template-rows: auto auto 1fr;
+  padding: 0.75rem;
+  grid-gap: 1rem;
+  grid-template-areas: 'image heading' 'image subtext' 'image section';
+  width: 50rem;
+  height: 35rem;
+  background: rgba(240, 135, 0, 0.25);
+  border-radius: 0.75em;
+  border: var(--border);
+  box-shadow: 0px 8px 32px rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+body:before,
+body:after {
+  content: '';
+  display: block;
+  left: 50%;
+  top: 50%;
+  position: fixed;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+body:before {
+  transform: translate(-70%, -20%);
+  width: 120vmin;
+  height: 120vmin;
+  background-color: rgba(239, 202, 8, 0.25);
+}
+
+body:after {
+  width: 80vmin;
+  height: 80vmin;
+  transform: translate(-20%, -60%);
+  background-color: rgba(61, 157, 209, 0.25);
+}
+
+img {
+  grid-area: image;
+  width: calc(100% + 1rem);
+  height: calc(100% + 2rem);
+  object-fit: cover;
+  margin-top: -1rem;
+  margin-left: -1rem;
+  border-radius: 0.75rem;
+}
+
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--font-heading);
+}
+
+h1 {
+  grid-area: heading;
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p,
+li,
+a {
+  grid-area: subtext;
+  font-size: 1.25rem;
+}
+
+section {
+  grid-area: section;
+  box-shadow: 0px 8px 24px rgba(244, 159, 10, 0.25);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: rgba(244, 159, 10, 0.25);
+  border: var(--border);
+}
+
+section > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+a {
+  display: block;
+  color: black;
+}
+
+a:before {
+  content: '';
+  background: url('../assets/github.png') no-repeat center/contain;
+  display: inline-block;
+  height: 1rem;
+  width: 1.5rem;
+  object-fit: contain;
+  margin-right: 0.25em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li:before {
+  content: '✅';
+  margin-right: 1em;
 }
